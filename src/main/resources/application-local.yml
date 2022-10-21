@@ -1,0 +1,31 @@
+spring:
+  jpa:
+    hibernate:
+      ddl-auto: none
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: 'false'
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    username: wozhgwibezheyg
+    url: jdbc:postgresql://ec2-18-208-55-135.compute-1.amazonaws.com:5432/dd0m77927kksd9
+    password: bc2920a34338b64f3c07638abbe65daeb188baa2f05b4688dfe404371b728ad3
+  mail:
+    properties:
+      mail:
+        starttls:
+          enable: 'true'
+        smtp:
+          auth: 'true'
+          starttls:
+            required: 'true'
+    host: smtp.gmail.com
+    username: noreplyanonimmessage@gmail.com
+    password: aqqytwtnzxhtnwkx
+    port: '587'
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
+slack:
+  url: https://hooks.slack.com/services/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

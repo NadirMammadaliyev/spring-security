@@ -1,0 +1,33 @@
+version: '3.7'
+services:
+  postgres:
+    image: postgres:9.4
+    environment:
+      POSTGRES_DATABASE: dd0m77927kksd9
+      POSTGRES_PASSWORD: bc2920a34338b64f3c07638abbe65daeb188baa2f05b4688dfe404371b728ad3
+      POSTGRES_USERNAME: wozhgwibezheyg
+    volumes:
+      - ./initial_sql_script.sql:/docker-entrypoint-initdb.d/initial_sql_script.sql
+    ports:
+      - "5432:5432"
+    networks:
+      - shared-net
+
+  app:
+    image: heroku-app
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    ports:
+      - "8082:8082"
+    depends_on:
+      - postgres
+    environment:
+      - spring.datasource.url=jdbc:postgresql://ec2-18-208-55-135.compute-1.amazonaws.com:5432/dd0m77927kksd9
+      - spring.datasource.username=jwozhgwibezheyg
+      - spring.datasource.password=bc2920a34338b64f3c07638abbe65daeb188baa2f05b4688dfe404371b728ad3
+    restart: always
+
+networks:
+  shared-net:
+    driver: bridge

@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nadir Mammadaliyev | Developer</title>
+    <meta name="keywords" content="Java, Oracle, Sql, MySql, html, javascript, css"/>
+    <meta name="description" content="Nadir Mammadaliyev | Developer"/>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <link rel="stylesheet" type="text/css" href="css/global.css">
+    <link rel="stylesheet" type="text/css" media="(max-width:500px)" href="css/mobile.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css">
+    <link rel="script" href="js/main.js">
+
+    <script>
+        function sendMessage() {
+            var userName = document.getElementById("name").value;
+            var userSurname = document.getElementById("surname").value;
+            var userEmail = document.getElementById("email").value;
+            var userMessage = document.getElementById("message").value;
+
+            var xmlhttp = new XMLHttpRequest();   // new HttpRequest instance
+            xmlhttp.open("POST", "http://localhost:8080/mail/send");
+            xmlhttp.setRequestHeader("Content-Type", "application/json");
+            xmlhttp.send(JSON.stringify({name: userName, surname: userSurname, email: userEmail, body: userMessage}));
+        }
+    </script>
+</head>
+
+<body>
+
+<header class="bg-dark-blue">
+    <div class="container">
+        <nav id="navbar">
+            <h1 class="heading-small">Heroku App </h1>
+            <ul>
+                <li><a href="#home">Home Page</a></li>
+                <li><a href="#training">Lessons</a></li>
+                <li><a href="#courses">Courses</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+<section id="home">
+    <img src="images/spring.png" alt="Nadir Mammadaliyev">
+    <div class="name text-center">
+        <h2 class="heading-big">Nadir Mammadaliyev</h2>
+        <p>Java Developer | Fonder of NadeeR Corp</p>
+    </div>
+</section>
+
+<section id="training" class="bg-dark-blue">
+    <h3 class="text-center heading-medium">Lessons</h3>
+    <div class="items">
+        <article class="item">
+            <i class="fa fa-pencil-alt"></i>
+            <h3>Spring boot</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima, eligendi?</p>
+        </article>
+
+        <article class="item">
+            <i class="fa fa-pencil-alt"></i>
+            <h3>Hibernate</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima, eligendi?</p>
+        </article>
+
+        <article class="item">
+            <i class="fa fa-pencil-alt"></i>
+            <h3>SQL</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima, eligendi?</p>
+        </article>
+    </div>
+</section>
+<section id="courses">
+    <h3 class="text-center heading-medium">Lessons</h3>
+    <div class="container">
+        <div class="courses">
+
+        </div>
+    </div>
+</section>
+<footer id="contact" class="bg-dark-blue">
+    <div class="contact-form">
+        <form>
+            <h4 class="text-center heading-medium">Contact me</h4>
+
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" class="form-control" name="name" id="name" placeholder="Name">
+            </div>
+            <div class="form-group">
+                <label for="surname">Surname</label>
+                <input type="text" class="form-control" name="name" id="surname" placeholder="Surname">
+            </div>
+
+            <div class="form-group">
+                <label for="email">E-mail</label>
+                <input type="email" class="form-control" name="email" id="email" placeholder="E-mail">
+            </div>
+
+            <div class="form-group">
+                <label for="message">Message</label>
+                <textarea type="text" class="form-control" name="message" id="message" row="5"
+                          placeholder="Your message..."></textarea>
+            </div>
+
+            <button type="button" class="btn btn-block" onclick="sendMessage()">Send</button>
+        </form>
+        <ul>
+            <li><a href="https://www.facebook.com/nadirmammadaliyevv"><i class="fab fa-facebook"></i></a></li>
+            <li><a href="https://www.instagram.com/nadirmammadaliyev/"><i class="fab fa-instagram"></i></a></li>
+            <li>
+                <a href="https://az.linkedin.com/in/nadir-mammadaliyev-42032721a/es?trk=people-guest_people_search-card"><i
+                        class="fa-brands fa-linkedin-in"></i></a></li>
+        </ul>
+    </div>
+</footer>
+</body>
+
+</html>
