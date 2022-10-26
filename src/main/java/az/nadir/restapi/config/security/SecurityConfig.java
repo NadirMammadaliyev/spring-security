@@ -52,7 +52,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .permitAll();
         http.authorizeRequests().antMatchers(GET, "/app-user/get/**")
                .hasAnyAuthority(RoleName.ROLE_USER.value(), RoleName.ROLE_ADMIN.value());
-        http.authorizeRequests().antMatchers(POST, "/app-user/save/**").hasAnyRole(RoleName.ROLE_ADMIN.value());
+        http.authorizeRequests().antMatchers(POST, "/app-user/save/**").hasAnyAuthority(RoleName.ROLE_ADMIN.value());
         http.authorizeRequests().anyRequest().authenticated();
         http.addFilter(customAuthenticationFilter);
         http.addFilterBefore(new CustomAuthorizationFilter(), UsernamePasswordAuthenticationFilter.class);

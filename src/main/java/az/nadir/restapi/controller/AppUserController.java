@@ -5,6 +5,7 @@ import az.nadir.restapi.model.Role;
 import az.nadir.restapi.model.response.RestResponse;
 import az.nadir.restapi.service.AppUserService;
 import az.nadir.restapi.service.TokenAuthenticationService;
+import az.nadir.restapi.util.Utilities;
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.JWTVerifier;
 import com.auth0.jwt.algorithms.Algorithm;
@@ -65,7 +66,7 @@ public class AppUserController {
         if (authorizationHeader != null && authorizationHeader.startsWith("Bearer ")) {
             try {
                 String refresh_token = authorizationHeader.substring("Bearer ".length());
-                Algorithm algorithm = Algorithm.HMAC256("secret".getBytes());
+                Algorithm algorithm = Algorithm.HMAC256(Utilities.Token.SECRET);
                 JWTVerifier verifier = JWT.require(algorithm).build();
                 DecodedJWT decodedJWT = verifier.verify(refresh_token);
                 String username = decodedJWT.getSubject();
